@@ -1,0 +1,52 @@
+@use '../../../theme';
+
+.background {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: -5000px;
+  width: 50%;
+  min-width: 15rem;
+  background-color: grey;
+  transition: cubic-bezier(1, 0, 0, 1) 0.5s;
+
+  &.active {
+    left: 0;
+  }
+}
+
+.products-container {
+  z-index: 2;
+  position: absolute;
+  top: 2rem;
+  left: -5000px;
+  transition: cubic-bezier(1, 0, 0, 1) 0.5s;
+
+  &.active {
+    left: 1rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 100;
+    border-bottom: solid theme.$font-color 0.05rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: theme.$font-color;
+    font-size: 1rem;
+    font-weight: 100;
+  }
+
+}
