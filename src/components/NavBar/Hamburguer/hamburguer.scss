@@ -1,27 +1,26 @@
-.hamburguer_container{
-    position: absolute;
-    left: 0.2rem;
-    margin: 0 1rem;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 40%;
-    transition: all 0.1s linear;
+.hamburguer_container {
+  position: absolute;
+  left: 0.2rem;
+  margin: 0 1rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 40%;
+  transition: all 0.1s linear;
 
+  &:hover {
+    background-color: gray;
+  }
 
-    &:hover{
-        background-color: gray;
-    }
-
-    span{
-        width: 80%;
-        height: 0.1rem;
-        background-color: black;
-        border-radius: 0.2rem;
-    }
+  span {
+    width: 80%;
+    height: 0.1rem;
+    background-color: black;
+    border-radius: 0.2rem;
+  }
 
   /*   @media (min-width: 768px) {
         display: none;

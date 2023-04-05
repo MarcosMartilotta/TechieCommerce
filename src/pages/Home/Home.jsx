@@ -1,5 +1,12 @@
-const Home = () => {
-  return <div></div>;
-};
+import './home.scss'
+import Slider from './components/Slider/Slider'
 
-export default Home;
+const Home = () => {
+  return (
+    <section>
+      <Slider />
+    </section>
+  )
+}
+
+export default Home
