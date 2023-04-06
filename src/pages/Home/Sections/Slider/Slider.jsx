@@ -1,5 +1,5 @@
 import './slider.scss'
-import Arrows from '../Arrows/Arrows'
+import Arrows from './Arrows/Arrows'
 import { useState } from 'react'
 
 const imgOne =
@@ -23,7 +23,7 @@ const Slider = () => {
   }
 
   return (
-    <div className="slider">
+    <section className="slider">
       <div
         className="container"
         style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
@@ -39,7 +39,7 @@ const Slider = () => {
       <div className="arrows">
         <Arrows nextSlide={nextSlide} prevSlide={prevSlide} />
       </div>
-    </div>
+    </section>
   )
 }
 

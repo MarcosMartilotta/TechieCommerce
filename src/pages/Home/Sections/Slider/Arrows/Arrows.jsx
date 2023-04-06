@@ -1,4 +1,5 @@
 import './arrows.scss'
+
 const Arrows = ({ nextSlide, prevSlide }) => {
   return (
     <>
