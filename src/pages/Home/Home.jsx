@@ -4,7 +4,7 @@ import Sales from './Sections/Sales/Sales'
 
 const Home = () => {
   return (
-    <section>
+    <section className="home">
       <Slider />
       <Sales />
     </section>
