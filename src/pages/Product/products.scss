@@ -1,20 +1,130 @@
 .products {
+  position: relative;
+  padding: 2rem;
   width: 100%;
   min-height: 100vh;
   height: 100%;
   h2 {
-    padding: 2rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
-  button {
-    padding: 1rem 2rem 1rem 3rem;
-    margin-left: 2rem;
+  form {
+    width: 100%;
+    margin-bottom: 1rem;
+    input {
+      width: 100%;
+      height: 4rem;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+  p {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
     font-size: 1.5rem;
     border: solid 1px black;
     cursor: pointer;
     span {
+      position: absolute;
+      right: 1rem;
+      display: inline-block;
       font-weight: bold;
-      padding-left: 1rem;
+      transform: rotate(90deg);
+    }
+  }
+
+  .filterContainer {
+    position: absolute;
+    padding: 2rem 1rem;
+    z-index: 1;
+    width: calc(100% - 4rem);
+    height: 0;
+    background-color: #ccc;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.1s linear;
+
+    h3 {
+      font-size: 1.5rem;
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+      margin-bottom: 2rem;
+      width: 90%;
+    }
+    form {
+      height: 2.5rem;
+      input {
+        height: 100%;
+      }
+    }
+    hr {
+      background-color: rgb(38, 38, 38);
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+    .orderBy {
+      font-size: 1.5rem;
+      list-style: none;
+      li {
+        margin-bottom: 1rem;
+        cursor: pointer;
+      }
+    }
+
+    &.active {
+      height: 30rem;
+      overflow: visible;
+      opacity: 1;
+    }
+  }
+
+  .productsSection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    form {
+      width: 100%;
+      margin-bottom: 1rem;
+      input {
+        width: 100%;
+        height: 3rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+    .left {
+      grid-column: 1;
+      margin-top: 4rem;
+
+      p {
+        padding-left: 0;
+        border: none;
+        font-size: 2rem;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        span {
+          display: none;
+        }
+      }
+
+      .filterContainer {
+        padding-left: 0;
+        padding-right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        position: inherit;
+        background-color: white;
+      }
     }
   }
 }

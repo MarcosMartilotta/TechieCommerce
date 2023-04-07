@@ -1,8 +1,8 @@
-import './saleCard.scss'
+import './productCard.scss'
 
-const SaleCard = ({ img, alt, description, price }) => {
+const ProductCard = ({ img, alt, description, price }) => {
   return (
-    <div className="saleCard">
+    <div className="productCard">
       <figure>
         <img src={img} alt={alt} />
       </figure>
@@ -13,4 +13,4 @@ const SaleCard = ({ img, alt, description, price }) => {
   )
 }
 
-export default SaleCard
+export default ProductCard
