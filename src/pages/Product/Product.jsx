@@ -25,21 +25,25 @@ const Product = () => {
         </div>
       </section>
       <section className="right">
-        <h2>Nombre del producto re largo con un poco de descripcion</h2>
+        <h2>Auriculares gamer HyperX Cloud II KHX-HSCP rojo</h2>
         <p className="price">$50000</p>
         <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio,
-          quibusdam voluptas saepe possimus cumque autem placeat, sed minima
-          consequatur, labore cum. Incidunt est qui dolor veritatis explicabo,
-          ab error! Nobis. Quasi, sit quo! Error iste ut accusantium facere
+          ¡Experimentá la adrenalina de sumergirte en la escena de otra manera!
+          Tener auriculares específicos para jugar cambia completamente tu
+          experiencia en cada partida. Con los HyperX Cloud II no te perdés
+          ningún detalle y escuchás el audio tal y como fue diseñado por los
+          creadores. El formato perfecto para vos El diseño over-ear brinda una
+          comodidad insuperable gracias a sus suaves almohadillas. Al mismo
+          tiempo, su sonido envolvente del más alto nivel se convierte en el
+          protagonista de la escena.
         </p>
-        <div>
-          <div>+</div>
+        <div className="addOrLess">
+          <button>+</button>
           <div>1</div>
-          <div>-</div>
+          <button>-</button>
         </div>
-        <button>Agregar al carrito</button>
-        <button>Ir a pagar</button>
+        <button className="addToChart">Agregar al carrito</button>
+        <button className="goToPay">Ir a pagar</button>
       </section>
     </section>
   );

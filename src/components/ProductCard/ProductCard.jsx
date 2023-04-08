@@ -1,16 +1,18 @@
-import './productCard.scss'
-
+import './productCard.scss';
+import { useNavigate } from 'react-router-dom';
 const ProductCard = ({ img, alt, description, price }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="productCard">
-      <figure>
+      <figure onClick={() => navigate('product/id')}>
         <img src={img} alt={alt} />
       </figure>
-      <p>{description}</p>
+      <h2 onClick={() => navigate('/product/id')}>{description}</h2>
       <span>{price}</span>
       <button>AGREGAR AL CARRITO</button>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;
