@@ -1,7 +1,8 @@
 const config = {
   REACT_APP_API_TOKEN:
     '4cfd2f686341e5ec4d29c651515118917c8c9bf5d17d95b58280eff8a320ff65130fcbd7d24f3601742d44a1d74a69469badae59c83ecd28b94641ca674939f19b08949209a4a06a2ca61f4df03b5346e0574baaad20203e8e3fe7d96085b248a497087e5e9868586a28f6aff8d2f3d1971044e0d9270bc55bb89b5b7c7187b5',
-  REACT_APP_API_URL: 'http://localhost:1337/api/',
+  REACT_APP_API_URL: 'http://localhost:1337/api',
+  REACT_APP_UPLOAD_URL: 'http://localhost:1337',
 };
 
 export default config;
