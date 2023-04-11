@@ -4,7 +4,6 @@ import config from '../../../config';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  console.log(product);
   return (
     <div className="productCard">
       <figure onClick={() => navigate(`product/${product.id}`)}>
@@ -13,13 +12,13 @@ const ProductCard = ({ product }) => {
             config.REACT_APP_UPLOAD_URL +
             product.attributes.img.data.attributes.url
           }
-          alt={alt}
+          alt=""
         />
       </figure>
       <h2 onClick={() => navigate('/product/id')}>
         {product.attributes.title}
       </h2>
-      <span>{product.attributes.price}</span>
+      <span>$ {product.attributes.price}</span>
       <button>AGREGAR AL CARRITO</button>
     </div>
   );

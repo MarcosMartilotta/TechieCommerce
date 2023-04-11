@@ -1,26 +1,33 @@
 import './sales.scss';
 import ProductCard from '../../../../components/ProductCard/ProductCard';
+import useFetch from '../../../../hooks/useFetch';
 
-const Sales = ({ type, data, loading, error }) => {
+const Sales = ({ type }) => {
+  const { data, loading, error } = useFetch(
+    `/products?populate=*&[filters][type]=${type}`,
+  );
+
   if (loading) {
     return <p>Loading...</p>;
-  } else if (error) {
-    console.log('error');
-  } else {
-    return (
-      <section className="sales">
-        <div className="cardsContainer">
-          {loading ? (
-            <p>Loading..</p>
-          ) : (
-            data.map((product) => {
-              <ProductCard product={product} key={product.id} type={'sale'} />;
-            })
-          )}
-        </div>
-      </section>
-    );
   }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  return (
+    <section className="sales">
+      <div className="cardsContainer">
+        {data ? (
+          data.map((product) => {
+            return <ProductCard product={product} key={product.id} />;
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default Sales;

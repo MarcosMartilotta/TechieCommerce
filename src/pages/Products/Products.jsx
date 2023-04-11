@@ -1,9 +1,19 @@
 import { useState } from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import useFetch from '../../hooks/useFetch';
 import './products.scss';
 
 const Products = () => {
   const [active, setActive] = useState(false);
+  const { data, loading, error } = useFetch(`/products?populate=*`);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   const dropDown = () => {
     setActive(!active);
@@ -38,19 +48,13 @@ const Products = () => {
       </section>
       <section className="right">
         <section className="productsSection">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {data ? (
+            data.map((product) => {
+              return <ProductCard product={product} key={product.id} />;
+            })
+          ) : (
+            <p>Loading...</p>
+          )}
         </section>
       </section>
     </section>
