@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import ProductCard from '../../components/ProductCard/ProductCard';
 import useFetch from '../../hooks/useFetch';
 import './products.scss';
+import ListOfProducts from './ListOfProducts/ListOfProducts';
 
 const Products = () => {
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  //const catId = parseInt(useParams().id);
+  const [maxPrice, setMaxPrice] = useState(10000000);
+  const [sort, setSort] = useState(null);
   const [active, setActive] = useState(false);
-  const { data, loading, error } = useFetch(`/products?populate=*`);
-
+  const { data, loading, error } = useFetch(`/categories`);
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -18,6 +21,18 @@ const Products = () => {
   const dropDown = () => {
     setActive(!active);
   };
+
+  const handleCategory = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedCategory(
+      isChecked
+        ? [...selectedCategory, value]
+        : selectedCategory.filter((item) => item !== value),
+    );
+  };
+
   return (
     <section className="products">
       <h2>PRODUCTOS</h2>
@@ -31,6 +46,27 @@ const Products = () => {
         <section
           className={active ? 'filterContainer active' : 'filterContainer'}
         >
+          <h3>PRODUCTO</h3>
+          <div className="category">
+            {data ? (
+              data.map((category) => {
+                return (
+                  <div key={category.id}>
+                    <input
+                      type="checkbox"
+                      onChange={handleCategory}
+                      value={category.id}
+                    />
+                    <label htmlFor={category.id}>
+                      {category.attributes.title}
+                    </label>
+                  </div>
+                );
+              })
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
           <h3>RANGO DE PRECIO</h3>
           <form action="">
             <input type="text" />
@@ -40,7 +76,6 @@ const Products = () => {
           <ul className="orderBy">
             <li>Más nuevo</li>
             <li>Mayor precio</li>
-            <li>Menor precio</li>
             <li>Ofertas</li>
             <li>Marca A-Z</li>
           </ul>
@@ -48,13 +83,11 @@ const Products = () => {
       </section>
       <section className="right">
         <section className="productsSection">
-          {data ? (
-            data.map((product) => {
-              return <ProductCard product={product} key={product.id} />;
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
+          <ListOfProducts
+            maxPrice={maxPrice}
+            sort={sort}
+            selectedCategory={selectedCategory}
+          />
         </section>
       </section>
     </section>
