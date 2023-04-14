@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   return (
     <div className="productCard">
-      <figure onClick={() => navigate(`product/${product.id}`)}>
+      <figure onClick={() => navigate(`/product/${product.id}`)}>
         <img
           src={
             config.REACT_APP_UPLOAD_URL +
