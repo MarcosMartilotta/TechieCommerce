@@ -1,15 +1,17 @@
+@use '../../theme';
 nav {
   min-width: 100vw;
   height: 6rem;
-  background-color: rgb(237, 237, 237);
+  background-color: theme.$blue;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-
+  color: theme.$font-color;
   h1 {
-    font-weight: 300;
+    font-weight: 100;
     font-size: 3rem;
+    letter-spacing: 0.2rem;
     cursor: pointer;
   }
 

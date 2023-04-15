@@ -1,21 +1,42 @@
+@use '../../../theme';
+
 .categories-container {
+  height: 4rem;
   position: absolute;
   left: 1rem;
   font-size: 2rem;
   font-weight: 100;
+  color: theme.$font-color;
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  &:hover {
+    ul {
+      height: 15rem;
+      display: block;
+    }
+  }
   h2 {
     cursor: pointer;
+    font-size: 2rem;
+    font-weight: 100;
+    letter-spacing: 0.2rem;
   }
-  span {
-    margin-right: 1rem;
-    cursor: pointer;
-    transition: 0.5s;
+  ul {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: -1rem;
+    width: 20rem;
+    padding: 1rem;
+    list-style: none;
+    z-index: 2;
+    background-color: theme.$blue;
 
-    &:hover {
-      opacity: 0.8;
+    li {
+      margin-bottom: 2rem;
+      cursor: pointer;
     }
   }
 }

@@ -17,6 +17,7 @@ const Sales = ({ type }) => {
 
   return (
     <section className="sales">
+      <h2>OFERTAS</h2>
       <div className="cardsContainer">
         {data ? (
           data.map((product) => {
