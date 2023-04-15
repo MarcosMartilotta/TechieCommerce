@@ -1,42 +1,83 @@
 import './product.scss';
-import imagen from '../../assets/Auricular1/D_NQ_NP_621706-MLA40186103035_122019-O.webp';
+import { useState } from 'react';
+import useFetch from '../../hooks/useFetch';
+import { useParams } from 'react-router-dom';
+import config from '../../../config';
 const Product = () => {
+  const id = useParams().id;
+  const { data, loading, error } = useFetch(`products/${id}?populate=*`);
+  const [selectedImage, setSelectedImage] = useState('img');
+
   return (
     <section className="product">
       <section className="left">
         <div className="allImagesContainer">
-          <figure>
-            <img src={imagen} alt="" />
+          <figure onClick={() => setSelectedImage('img')}>
+            <img
+              src={
+                config.REACT_APP_UPLOAD_URL +
+                data?.attributes.img?.data.attributes.url
+              }
+              alt=""
+            />
           </figure>
-          <figure>
-            <img src={imagen} alt="" />
+          <figure onClick={() => setSelectedImage('img2')}>
+            <img
+              src={
+                config.REACT_APP_UPLOAD_URL +
+                data?.attributes.img2?.data.attributes.url
+              }
+              alt=""
+            />
           </figure>
-          <figure>
-            <img src={imagen} alt="" />
+          <figure onClick={() => setSelectedImage('img3')}>
+            <img
+              src={
+                config.REACT_APP_UPLOAD_URL +
+                data?.attributes.img3?.data.attributes.url
+              }
+              alt=""
+            />
           </figure>
-          <figure>
-            <img src={imagen} alt="" />
-          </figure>
+          {data?.attributes.img4.data?.attributes?.url && (
+            <figure onClick={() => setSelectedImage('img4')}>
+              <img
+                src={
+                  config.REACT_APP_UPLOAD_URL +
+                  data?.attributes.img4?.data.attributes.url
+                }
+                alt=""
+              />
+            </figure>
+          )}
         </div>
-        <div className="selectedImage">
-          <figure>
-            <img src={imagen} alt="" />
-          </figure>
-        </div>
+        {data ? (
+          <div className="selectedImage">
+            <figure>
+              <img
+                src={
+                  config.REACT_APP_UPLOAD_URL +
+                  data?.attributes[selectedImage].data.attributes.url
+                }
+                alt=""
+              />
+            </figure>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
       </section>
       <section className="right">
-        <h2>Auriculares gamer HyperX Cloud II KHX-HSCP rojo</h2>
-        <p className="price">$50000</p>
-        <p className="description">
-          ¡Experimentá la adrenalina de sumergirte en la escena de otra manera!
-          Tener auriculares específicos para jugar cambia completamente tu
-          experiencia en cada partida. Con los HyperX Cloud II no te perdés
-          ningún detalle y escuchás el audio tal y como fue diseñado por los
-          creadores. El formato perfecto para vos El diseño over-ear brinda una
-          comodidad insuperable gracias a sus suaves almohadillas. Al mismo
-          tiempo, su sonido envolvente del más alto nivel se convierte en el
-          protagonista de la escena.
-        </p>
+        {data ? (
+          <>
+            <h2>{data?.attributes.title}</h2>
+            <p className="price">${data?.attributes.price}</p>
+            <p className="description">{data?.attributes.description}</p>
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+
         <div className="addOrLess">
           <button>+</button>
           <div>1</div>

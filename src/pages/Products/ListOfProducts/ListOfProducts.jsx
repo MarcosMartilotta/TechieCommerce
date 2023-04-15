@@ -3,7 +3,6 @@ import ProductCard from '../../../components/ProductCard/ProductCard';
 
 const ListOfProducts = ({ maxPrice, sort, selectedCategory }) => {
   const { data, loading, error } = useFetch(`/products?populate=*&`);
-  console.log(selectedCategory);
   return (
     <div className="productsSection">
       {data ? (

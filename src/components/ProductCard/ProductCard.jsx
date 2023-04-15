@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
           alt=""
         />
       </figure>
-      <h2 onClick={() => navigate('/product/id')}>
+      <h2 onClick={() => navigate(`/product/${product.id}`)}>
         {product.attributes.title}
       </h2>
       <span>$ {product.attributes.price}</span>
