@@ -5,7 +5,7 @@ import config from '../../../config';
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   return (
-    <div className="productCard">
+    <article className="productCard">
       <figure onClick={() => navigate(`/product/${product.id}`)}>
         <img
           src={
@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
       </h2>
       <span>$ {product.attributes.price}</span>
       <button>AGREGAR AL CARRITO</button>
-    </div>
+    </article>
   );
 };
 

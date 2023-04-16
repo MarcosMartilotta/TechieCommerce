@@ -1,13 +1,14 @@
 @use '../../theme';
 nav {
   min-width: 100vw;
-  height: 6rem;
-  background-color: theme.$blue;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
   color: theme.$font-color;
+  background: white;
+  background: theme.$background-gradient;
   h1 {
     font-weight: 100;
     font-size: 3rem;
