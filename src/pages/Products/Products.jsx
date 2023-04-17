@@ -33,6 +33,9 @@ const Products = () => {
     );
   };
 
+  const changeMaxPrice = (e) => {
+    setMaxPrice(e.target.value);
+  };
   return (
     <section className="products">
       <h2>PRODUCTOS</h2>
@@ -69,9 +72,9 @@ const Products = () => {
             )}
           </div>
           <h3>RANGO DE PRECIO</h3>
-          <form action="">
-            <input type="text" />
-          </form>
+          <span>0</span>
+          <input type="range" min={0} max={150000} onChange={changeMaxPrice} />
+          <span>{maxPrice}</span>
           <hr />
           <h3>ORDENAR POR</h3>
           <ul className="orderBy">

@@ -1,6 +1,5 @@
 import './productCard.scss';
 import { useNavigate } from 'react-router-dom';
-import config from '../../../config';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -9,7 +8,7 @@ const ProductCard = ({ product }) => {
       <figure onClick={() => navigate(`/product/${product.id}`)}>
         <img
           src={
-            config.REACT_APP_UPLOAD_URL +
+            import.meta.env.VITE_UPLOAD_URL +
             product.attributes.img.data.attributes.url
           }
           alt=""

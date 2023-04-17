@@ -2,7 +2,9 @@ import useFetch from '../../../hooks/useFetch';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 
 const ListOfProducts = ({ maxPrice, sort, selectedCategory }) => {
-  const { data, loading, error } = useFetch(`/products?populate=*&`);
+  const { data, loading, error } = useFetch(
+    `/products?populate=*&[filters][price][$lte]=${maxPrice}`,
+  );
   return (
     <div className="productsSection">
       {data ? (

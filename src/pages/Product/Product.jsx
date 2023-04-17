@@ -2,7 +2,6 @@ import './product.scss';
 import { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
-import config from '../../../config';
 const Product = () => {
   const id = useParams().id;
   const { data, loading, error } = useFetch(`products/${id}?populate=*`);
@@ -15,7 +14,7 @@ const Product = () => {
           <figure onClick={() => setSelectedImage('img')}>
             <img
               src={
-                config.REACT_APP_UPLOAD_URL +
+                import.meta.env.VITE_UPLOAD_URL +
                 data?.attributes.img?.data.attributes.url
               }
               alt=""
@@ -24,7 +23,7 @@ const Product = () => {
           <figure onClick={() => setSelectedImage('img2')}>
             <img
               src={
-                config.REACT_APP_UPLOAD_URL +
+                import.meta.env.VITE_UPLOAD_URL +
                 data?.attributes.img2?.data.attributes.url
               }
               alt=""
@@ -33,7 +32,7 @@ const Product = () => {
           <figure onClick={() => setSelectedImage('img3')}>
             <img
               src={
-                config.REACT_APP_UPLOAD_URL +
+                import.meta.env.VITE_UPLOAD_URL +
                 data?.attributes.img3?.data.attributes.url
               }
               alt=""
@@ -43,7 +42,7 @@ const Product = () => {
             <figure onClick={() => setSelectedImage('img4')}>
               <img
                 src={
-                  config.REACT_APP_UPLOAD_URL +
+                  import.meta.env.VITE_UPLOAD_URL +
                   data?.attributes.img4?.data.attributes.url
                 }
                 alt=""
@@ -56,7 +55,7 @@ const Product = () => {
             <figure>
               <img
                 src={
-                  config.REACT_APP_UPLOAD_URL +
+                  import.meta.env.VITE_UPLOAD_URL +
                   data?.attributes[selectedImage].data.attributes.url
                 }
                 alt=""
