@@ -53,12 +53,13 @@ const Products = () => {
                 return (
                   <div key={category.id}>
                     <input
+                      id={category.id}
                       type="checkbox"
                       onChange={handleCategory}
                       value={category.id}
                     />
                     <label htmlFor={category.id}>
-                      {category.attributes.title}
+                      {category.attributes.title.toUpperCase()}
                     </label>
                   </div>
                 );
