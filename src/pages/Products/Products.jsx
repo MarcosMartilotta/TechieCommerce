@@ -5,11 +5,11 @@ import ListOfProducts from './ListOfProducts/ListOfProducts';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
-  //const catId = parseInt(useParams().id);
-  const [maxPrice, setMaxPrice] = useState(10000000);
-  const [sort, setSort] = useState(null);
+  const [maxPrice, setMaxPrice] = useState(100000);
+  const [sort, setSort] = useState('desc');
   const [active, setActive] = useState(false);
   const { data, loading, error } = useFetch(`/categories`);
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -35,6 +35,11 @@ const Products = () => {
 
   const changeMaxPrice = (e) => {
     setMaxPrice(e.target.value);
+  };
+
+  const handleSort = () => {
+    setSort(sort === 'desc' ? 'asc' : 'desc');
+    console.log(sort);
   };
   return (
     <section className="products">
@@ -78,7 +83,7 @@ const Products = () => {
           <hr />
           <h3>ORDENAR POR</h3>
           <ul className="orderBy">
-            <li>Más nuevo</li>
+            <li onClick={handleSort}>Más nuevo</li>
             <li>Mayor precio</li>
             <li>Ofertas</li>
             <li>Marca A-Z</li>

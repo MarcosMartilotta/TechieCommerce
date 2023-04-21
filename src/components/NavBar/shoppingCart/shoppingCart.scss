@@ -1,0 +1,36 @@
+@use '../../../theme';
+
+.shoppingCart {
+  position: absolute;
+  top: 8rem;
+  width: 100%;
+  height: fit-content;
+  z-index: 999;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    60deg,
+    rgb(48, 152, 255) 0%,
+    rgb(237, 184, 253) 50%,
+    rgb(197, 189, 248) 100%
+  );
+
+  .total {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    div {
+      width: 1px;
+      border: solid 1px black;
+      height: 3rem;
+    }
+    a {
+      text-decoration: none;
+      color: theme.$font-color;
+    }
+  }
+}

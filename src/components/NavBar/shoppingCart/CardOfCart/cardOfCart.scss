@@ -1,0 +1,56 @@
+@use '../../../../theme';
+
+.cardOfCart {
+  position: relative;
+  width: 100%;
+  height: 8rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .productImage {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 8rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .titleAndPrice {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  .addOrRemove {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    .takeOut {
+      width: 7rem;
+      height: 3rem;
+    }
+    .moreOrLess {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        width: 2.5rem;
+        height: 100%;
+      }
+      span {
+        display: inline-block;
+        width: 2rem;
+        text-align: center;
+      }
+    }
+  }
+}
