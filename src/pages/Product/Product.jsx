@@ -2,10 +2,15 @@ import './product.scss';
 import { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartReducer';
+
 const Product = () => {
   const id = useParams().id;
   const { data, loading, error } = useFetch(`products/${id}?populate=*`);
   const [selectedImage, setSelectedImage] = useState('img');
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <section className="product">
@@ -78,11 +83,34 @@ const Product = () => {
         )}
 
         <div className="addOrLess">
-          <button>+</button>
-          <div>1</div>
-          <button>-</button>
+          <button
+            onClick={() =>
+              setQuantity((prev) => (prev !== 1 ? prev - 1 : prev))
+            }
+          >
+            -
+          </button>
+          <div>{quantity}</div>
+          <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
-        <button className="addToChart">Agregar al carrito</button>
+        <button
+          className="addToChart"
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id,
+                title: data?.attributes.title,
+                img:
+                  import.meta.env.VITE_UPLOAD_URL +
+                  data?.attributes.img?.data.attributes.url,
+                price: data?.attributes.price,
+                quantity: quantity,
+              }),
+            )
+          }
+        >
+          Agregar al carrito
+        </button>
         <button className="goToPay">Ir a pagar</button>
       </section>
     </section>

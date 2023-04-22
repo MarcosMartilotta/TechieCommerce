@@ -1,21 +1,29 @@
 import './cardOfCart.scss';
+import { removeItem } from '../../../../redux/cartReducer';
+import { useDispatch } from 'react-redux';
 
-const CardOfCart = ({ img, title, quantity, price }) => {
+const CardOfCart = ({ product }) => {
+  const dispatch = useDispatch();
   return (
     <article className="cardOfCart">
       <figure className="productImage">
-        <img src="" alt="" />
+        <img src={product.img} alt="" />
       </figure>
       <div className="titleAndPrice">
-        <h3>Title</h3>
-        <p>$5000</p>
+        <h3>{product.title}</h3>
+        <p>${product.price * product.quantity}</p>
       </div>
       {/* multiplicar el precio base por quantuty */}
       <div className="addOrRemove">
-        <button className="takeOut">Quitar</button>
+        <button
+          className="takeOut"
+          onClick={() => dispatch(removeItem(product.id))}
+        >
+          Quitar
+        </button>
         <div className="moreOrLess">
           <button>-</button>
-          <span>1</span>
+          <span>{product.quantity}</span>
           <button>+</button>
         </div>
       </div>
