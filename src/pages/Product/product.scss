@@ -76,6 +76,10 @@
         text-align: center;
         border: none;
         background: theme.$background-gradient;
+        cursor: pointer;
+        &:active {
+          opacity: 0.8;
+        }
       }
     }
     .addToChart,
@@ -84,6 +88,10 @@
       padding: 1rem;
       background: theme.$background-gradient;
       border: none;
+      cursor: pointer;
+      &:active {
+        opacity: 0.8;
+      }
     }
     .addToChart {
       margin-right: 2rem;

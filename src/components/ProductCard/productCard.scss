@@ -49,5 +49,9 @@
     border: none;
     background: theme.$background;
     background: theme.$background-gradient;
+
+    &:active {
+      opacity: 0.8;
+    }
   }
 }
