@@ -6,7 +6,7 @@ const DesktopNav = () => {
     <div className="categories-container">
       <h2 onClick={() => navigate('/products')}>PRODUCTOS</h2>
       <ul>
-        <li>Teclados</li>
+        <li onClick={() => navigate('/products')}>Teclados</li>
         <li>Mouses</li>
         <li>Auriculares</li>
       </ul>

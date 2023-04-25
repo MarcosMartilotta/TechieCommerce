@@ -6,10 +6,14 @@ import MobileNav from './MobileNav/MobileNav';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCart from './shoppingCart/ShoppingCart';
 import './navBar.scss';
+import { useSelector } from 'react-redux';
+
 const NavBar = () => {
   const { isMobile } = useMobile();
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
+  const products = useSelector((state) => state.cart.products);
+
   return (
     <nav>
       {isMobile ? <MobileNav /> : <DesktopNav />}
@@ -20,6 +24,7 @@ const NavBar = () => {
           alt="shopping Cart"
           onClick={() => setActive(!active)}
         />
+        <div>{products.length}</div>
       </figure>
       {active && <ShoppingCart />}
     </nav>
