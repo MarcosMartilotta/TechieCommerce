@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react'
-import Hamburguer from '../Hamburguer/Hamburguer'
-import { useNavigate } from 'react-router-dom'
-import './mobileNav.scss'
+import { useState, useEffect } from 'react';
+import Hamburguer from './Hamburguer/Hamburguer';
+import { useNavigate } from 'react-router-dom';
+import './mobileNav.scss';
 
 const MobileNav = () => {
-  const [active, setActive] = useState(false)
-  const navigate = useNavigate()
+  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
-    e.stopPropagation()
-    setActive(!active)
-  }
+    e.stopPropagation();
+    setActive(!active);
+  };
 
   useEffect(() => {
     const closeMenu = () => {
-      setActive(false)
-    }
+      setActive(false);
+    };
 
-    document.body.addEventListener('click', closeMenu)
+    document.body.addEventListener('click', closeMenu);
 
-    return () => document.body.removeEventListener('click', closeMenu)
-  }, [])
+    return () => document.body.removeEventListener('click', closeMenu);
+  }, []);
 
   return (
     <>
@@ -44,6 +44,6 @@ const MobileNav = () => {
       <div className=""></div>
       <div className={active ? 'background active' : 'background'}></div>
     </>
-  )
-}
-export default MobileNav
+  );
+};
+export default MobileNav;

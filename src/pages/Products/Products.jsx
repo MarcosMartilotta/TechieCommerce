@@ -46,7 +46,7 @@ const Products = () => {
       <h2>PRODUCTOS</h2>
       <section className="left">
         <form action="">
-          <input type="text" name="" id="" />
+          <input type="text" name="" id="" placeholder="Buscar" />
         </form>
         <p onClick={dropDown}>
           Filtrar <span>{'>'}</span>{' '}
@@ -76,17 +76,18 @@ const Products = () => {
               <p>Loading...</p>
             )}
           </div>
+          <hr />
           <h3>RANGO DE PRECIO</h3>
-          <span>0</span>
+          <span>$0</span>
           <input type="range" min={0} max={150000} onChange={changeMaxPrice} />
-          <span>{maxPrice}</span>
+          <span>${maxPrice}</span>
           <hr />
           <h3>ORDENAR POR</h3>
           <ul className="orderBy">
-            <li onClick={handleSort}>Más nuevo</li>
-            <li>Mayor precio</li>
-            <li>Ofertas</li>
-            <li>Marca A-Z</li>
+            <li onClick={handleSort}>MÁS NUEVO</li>
+            <li>MAYOR PRECIO</li>
+            <li>OFERTAS</li>
+            <li>MARCA A-Z</li>
           </ul>
         </section>
       </section>

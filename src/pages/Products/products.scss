@@ -18,6 +18,14 @@
       height: 4rem;
       padding: 1rem;
       font-size: 1.5rem;
+      border: none;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+      &:active {
+        border: none;
+      }
     }
   }
   p {
@@ -42,15 +50,11 @@
     z-index: 1;
     width: calc(100% - 4rem);
     height: 0;
-    background: linear-gradient(
-      60deg,
-      rgb(172, 214, 255) 0%,
-      rgb(238, 183, 255) 50%,
-      rgb(195, 185, 255) 100%
-    );
+    background: theme.$violet;
     overflow: hidden;
     opacity: 0;
     transition: 0.1s linear;
+    color: white;
 
     h3 {
       font-size: 1.5rem;
@@ -61,7 +65,7 @@
     }
 
     .category {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       list-style: none;
       margin-bottom: 2rem;
 
@@ -82,8 +86,8 @@
     }
 
     .category input[type='checkbox'] {
-      width: 2rem;
-      height: 2rem;
+      width: 1.8rem;
+      height: 1.8rem;
       margin-right: 1rem;
       cursor: pointer;
     }
@@ -94,6 +98,14 @@
       height: 2.5rem;
       input {
         height: 100%;
+        border: none;
+        &:focus {
+          border: none;
+          outline: none;
+        }
+        &:active {
+          border: none;
+        }
       }
     }
     hr {
@@ -102,7 +114,7 @@
       margin-top: 2rem;
     }
     .orderBy {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       list-style: none;
       li {
         margin-bottom: 1rem;
@@ -127,7 +139,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 6rem 2rem;
   }
 
   @media (min-width: 768px) {
@@ -138,16 +150,27 @@
       margin-bottom: 1rem;
       input {
         width: 100%;
-        height: 3rem;
+        height: 2rem;
         padding: 1rem;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        border: none;
+        &:focus {
+          border: none;
+          outline: none;
+        }
+        &:active {
+          border: none;
+        }
       }
     }
     .left {
       grid-column: 1;
       margin-top: 4rem;
       background-color: transparent;
-
+      input {
+        background: 0.3;
+        border: none;
+      }
       p {
         padding-left: 0;
         border: none;
@@ -167,10 +190,11 @@
         opacity: 1;
         position: inherit;
         background-color: transparent;
-        font-size: 1rem;
+        font-size: 1.2rem;
+        color: theme.$font-color;
 
         h3 {
-          font-size: 2rem;
+          font-size: 1.8rem;
         }
       }
     }

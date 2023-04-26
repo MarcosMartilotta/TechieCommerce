@@ -8,13 +8,7 @@
   left: -5000px;
   width: 50%;
   min-width: 15rem;
-  background: rgb(0, 128, 255);
-  background: radial-gradient(
-    circle,
-    rgba(0, 128, 255) 0%,
-    rgb(224, 120, 255) 50%,
-    rgb(140, 119, 255) 100%
-  );
+  background: theme.$violet;
 
   transition: cubic-bezier(1, 0, 0, 1) 0.5s;
 
@@ -41,7 +35,7 @@
   h2 {
     font-size: 3rem;
     font-weight: 100;
-    border-bottom: solid theme.$font-color 0.05rem;
+    border-bottom: solid white 0.05rem;
     margin-bottom: 1rem;
     cursor: pointer;
   }
@@ -52,8 +46,8 @@
 
   a {
     text-decoration: none;
-    color: theme.$font-color;
     font-size: 2rem;
     font-weight: 100;
+    color: white;
   }
 }

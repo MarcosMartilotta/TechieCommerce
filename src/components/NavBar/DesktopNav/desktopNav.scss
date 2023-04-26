@@ -6,7 +6,7 @@
   left: 1rem;
   font-size: 2rem;
   font-weight: 100;
-  color: theme.$font-color;
+  color: white;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -15,7 +15,7 @@
     ul {
       height: contain;
       display: block;
-      background: #bbd7fc;
+      background: theme.$violet;
     }
   }
   h2 {

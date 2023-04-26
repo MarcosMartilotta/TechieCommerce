@@ -40,19 +40,32 @@
     .takeOut {
       width: 7rem;
       height: 3rem;
+      background-color: theme.$blue;
+      border: none;
+      color: white;
+      cursor: pointer;
+
+      &:active {
+        opacity: 0.8;
+      }
     }
     .moreOrLess {
       width: 100%;
       display: flex;
       justify-content: center;
       button {
-        width: 2.5rem;
-        height: 100%;
+        width: 1.8rem;
+        height: 1.8rem;
+        background-color: theme.$blue;
+        border: none;
+        color: white;
+        cursor: pointer;
       }
       span {
         display: inline-block;
         width: 2rem;
         text-align: center;
+        line-height: 1.8rem;
       }
     }
   }
