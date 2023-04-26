@@ -78,9 +78,16 @@ const Products = () => {
           </div>
           <hr />
           <h3>RANGO DE PRECIO</h3>
-          <span>$0</span>
-          <input type="range" min={0} max={150000} onChange={changeMaxPrice} />
-          <span>${maxPrice}</span>
+          <div className="priceRange">
+            <span>$0</span>
+            <input
+              type="range"
+              min={0}
+              max={150000}
+              onChange={changeMaxPrice}
+            />
+            <span>${maxPrice}</span>
+          </div>
           <hr />
           <h3>ORDENAR POR</h3>
           <ul className="orderBy">
