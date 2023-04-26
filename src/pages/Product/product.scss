@@ -65,7 +65,7 @@
       width: 13rem;
       height: 4rem;
       margin-bottom: 2rem;
-      font-size: 3rem;
+      font-size: 1.8rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -73,10 +73,13 @@
       div {
         height: 4rem;
         width: 4rem;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: none;
-        background: theme.$background-gradient;
+        background: theme.$violet;
         cursor: pointer;
+        color: white;
         &:active {
           opacity: 0.8;
         }
@@ -86,9 +89,10 @@
     .goToPay {
       font-size: 2rem;
       padding: 1rem;
-      background: theme.$background-gradient;
+      background: theme.$violet;
       border: none;
       cursor: pointer;
+      color: white;
       &:active {
         opacity: 0.8;
       }
