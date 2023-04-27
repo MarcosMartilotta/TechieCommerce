@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import Hamburguer from './Hamburguer/Hamburguer';
 import { useNavigate } from 'react-router-dom';
+import useFetch from '../../../hooks/useFetch';
 import './mobileNav.scss';
 
 const MobileNav = () => {
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
+  const { data, loading, error } = useFetch(`/categories`);
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -30,15 +32,17 @@ const MobileNav = () => {
       >
         <h2 onClick={() => navigate('/products')}>Productos</h2>
         <ul>
-          <li>
-            <a href="#">Teclados</a>
-          </li>
-          <li>
-            <a href="#">Auriculares</a>
-          </li>
-          <li>
-            <a href="#">Mouses</a>
-          </li>
+          {data ? (
+            data.map((category) => {
+              return (
+                <li key={category.id} value={category.id}>
+                  {category.attributes.title.toUpperCase()}
+                </li>
+              );
+            })
+          ) : (
+            <></>
+          )}
         </ul>
       </div>
       <div className=""></div>
