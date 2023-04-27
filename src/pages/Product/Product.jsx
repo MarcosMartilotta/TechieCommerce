@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartReducer';
+import { lazy, Suspense } from 'react';
 
 const Product = () => {
   const id = useParams().id;
@@ -11,7 +12,6 @@ const Product = () => {
   const [selectedImage, setSelectedImage] = useState('img');
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-
   return (
     <section className="product">
       <section className="left">
