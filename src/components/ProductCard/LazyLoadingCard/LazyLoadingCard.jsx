@@ -1,4 +1,4 @@
-import React from 'react';
+import './lazyLoadingCard.scss';
 
 const LazyLoadingCard = () => {
   return <div className="lazyLoadingCard"></div>;

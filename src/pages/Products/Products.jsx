@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import './products.scss';
 import ListOfProducts from './ListOfProducts/ListOfProducts';
+import LazyListOfProducts from './ListOfProducts/LazyListOfProducts/LazyListOfProducts';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
@@ -11,7 +12,7 @@ const Products = () => {
   const { data, loading, error } = useFetch(`/categories`);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LazyListOfProducts />;
   }
 
   if (error) {
@@ -73,7 +74,7 @@ const Products = () => {
                 );
               })
             ) : (
-              <p>Loading...</p>
+              <LazyListOfProducts />
             )}
           </div>
           <hr />

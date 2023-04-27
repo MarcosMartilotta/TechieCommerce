@@ -1,6 +1,8 @@
 import './sales.scss';
 import ProductCard from '../../../../components/ProductCard/ProductCard';
 import useFetch from '../../../../hooks/useFetch';
+import LazyListOfProducts from '../../../Products/ListOfProducts/LazyListOfProducts/LazyListOfProducts';
+import LazySales from './LazySales';
 
 const Sales = ({ type }) => {
   const { data, loading, error } = useFetch(
@@ -8,7 +10,7 @@ const Sales = ({ type }) => {
   );
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LazySales />;
   }
 
   if (error) {
@@ -24,7 +26,7 @@ const Sales = ({ type }) => {
             return <ProductCard product={product} key={product.id} />;
           })
         ) : (
-          <p>Loading...</p>
+          <LazyListOfProducts />
         )}
       </div>
     </section>
