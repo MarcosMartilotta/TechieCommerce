@@ -4,9 +4,15 @@ import './products.scss';
 import ListOfProducts from './ListOfProducts/ListOfProducts';
 import LazyListOfProducts from './ListOfProducts/LazyListOfProducts/LazyListOfProducts';
 import LazyProducts from './LazyProducts/LazyProducts';
+import { useParams } from 'react-router-dom';
 
-const Products = () => {
-  const [selectedCategory, setSelectedCategory] = useState([]);
+const Products = ({ categoryId = [] }) => {
+  const id = useParams().id;
+  console.log(id);
+  const [selectedCategory, setSelectedCategory] = useState(
+    id !== 'empty' ? [id] : [],
+  );
+  console.log(selectedCategory);
   const [maxPrice, setMaxPrice] = useState(100000);
   const [sort, setSort] = useState('desc');
   const [active, setActive] = useState(false);

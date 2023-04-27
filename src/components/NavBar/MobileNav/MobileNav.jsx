@@ -30,12 +30,16 @@ const MobileNav = () => {
       <div
         className={active ? 'products-container active' : 'products-container'}
       >
-        <h2 onClick={() => navigate('/products')}>Productos</h2>
+        <h2 onClick={() => navigate('/products/empty')}>Productos</h2>
         <ul>
           {data ? (
             data.map((category) => {
               return (
-                <li key={category.id} value={category.id}>
+                <li
+                  key={category.id}
+                  value={category.id}
+                  onClick={() => navigate(`/products/${category.id}`)}
+                >
                   {category.attributes.title.toUpperCase()}
                 </li>
               );

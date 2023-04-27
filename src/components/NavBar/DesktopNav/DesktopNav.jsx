@@ -8,12 +8,16 @@ const DesktopNav = () => {
 
   return (
     <div className="categories-container">
-      <h2 onClick={() => navigate('/products')}>PRODUCTOS</h2>
+      <h2 onClick={() => navigate('/products/empty')}>PRODUCTOS</h2>
       <ul>
         {data ? (
           data.map((category) => {
             return (
-              <li key={category.id} value={category.id}>
+              <li
+                key={category.id}
+                value={category.id}
+                onClick={() => navigate(`/products/${category.id}`)}
+              >
                 {category.attributes.title.toUpperCase()}
               </li>
             );
