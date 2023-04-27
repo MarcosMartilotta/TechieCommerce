@@ -4,7 +4,6 @@ import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartReducer';
-import { lazy, Suspense } from 'react';
 
 const Product = () => {
   const id = useParams().id;
@@ -15,46 +14,52 @@ const Product = () => {
   return (
     <section className="product">
       <section className="left">
-        <div className="allImagesContainer">
-          <figure onClick={() => setSelectedImage('img')}>
-            <img
-              src={
-                import.meta.env.VITE_UPLOAD_URL +
-                data?.attributes.img?.data.attributes.url
-              }
-              alt=""
-            />
-          </figure>
-          <figure onClick={() => setSelectedImage('img2')}>
-            <img
-              src={
-                import.meta.env.VITE_UPLOAD_URL +
-                data?.attributes.img2?.data.attributes.url
-              }
-              alt=""
-            />
-          </figure>
-          <figure onClick={() => setSelectedImage('img3')}>
-            <img
-              src={
-                import.meta.env.VITE_UPLOAD_URL +
-                data?.attributes.img3?.data.attributes.url
-              }
-              alt=""
-            />
-          </figure>
-          {data?.attributes.img4.data?.attributes?.url && (
-            <figure onClick={() => setSelectedImage('img4')}>
+        {data ? (
+          <div className="allImagesContainer">
+            <figure onClick={() => setSelectedImage('img')}>
               <img
                 src={
                   import.meta.env.VITE_UPLOAD_URL +
-                  data?.attributes.img4?.data.attributes.url
+                  data?.attributes.img?.data.attributes.url
                 }
                 alt=""
               />
             </figure>
-          )}
-        </div>
+            <figure onClick={() => setSelectedImage('img2')}>
+              <img
+                src={
+                  import.meta.env.VITE_UPLOAD_URL +
+                  data?.attributes.img2?.data.attributes.url
+                }
+                alt=""
+              />
+            </figure>
+            <figure onClick={() => setSelectedImage('img3')}>
+              <img
+                src={
+                  import.meta.env.VITE_UPLOAD_URL +
+                  data?.attributes.img3?.data.attributes.url
+                }
+                alt=""
+                onLoad={() => <p>Loading</p>}
+              />
+            </figure>
+            {data?.attributes.img4.data?.attributes?.url && (
+              <figure onClick={() => setSelectedImage('img4')}>
+                <img
+                  src={
+                    import.meta.env.VITE_UPLOAD_URL +
+                    data?.attributes.img4?.data.attributes.url
+                  }
+                  alt=""
+                />
+              </figure>
+            )}
+          </div>
+        ) : (
+          <></>
+        )}
+
         {data ? (
           <div className="selectedImage">
             <figure>
@@ -68,7 +73,7 @@ const Product = () => {
             </figure>
           </div>
         ) : (
-          <p>Loading...</p>
+          <div className="selectedImageLazy"></div>
         )}
       </section>
       <section className="right">
@@ -79,7 +84,7 @@ const Product = () => {
             <p className="description">{data?.attributes.description}</p>
           </>
         ) : (
-          <p>Loading...</p>
+          <div className="selectedImageLazy"></div>
         )}
 
         <div className="addOrLess">

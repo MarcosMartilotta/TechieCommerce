@@ -6,8 +6,8 @@ footer {
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: theme.$background;
-  background: theme.$background-gradient;
+  background-color: theme.$violet;
+  color: white;
 
   .poweredBy {
     display: flex;
