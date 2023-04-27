@@ -3,6 +3,7 @@ import useFetch from '../../hooks/useFetch';
 import './products.scss';
 import ListOfProducts from './ListOfProducts/ListOfProducts';
 import LazyListOfProducts from './ListOfProducts/LazyListOfProducts/LazyListOfProducts';
+import LazyProducts from './LazyProducts/LazyProducts';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
@@ -12,7 +13,7 @@ const Products = () => {
   const { data, loading, error } = useFetch(`/categories`);
 
   if (loading) {
-    return <LazyListOfProducts />;
+    return <LazyProducts />;
   }
 
   if (error) {

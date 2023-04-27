@@ -206,4 +206,24 @@
       }
     }
   }
+
+  .lazyDiv {
+    margin-bottom: 2rem;
+    height: 2rem;
+    width: 100%;
+    animation: fade 1s linear infinite;
+    background-color: gray;
+    @keyframes fade {
+      0% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.8;
+      }
+
+      100% {
+        opacity: 0.2;
+      }
+    }
+  }
 }
