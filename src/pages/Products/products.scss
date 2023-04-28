@@ -122,10 +122,13 @@
     }
     .orderBy {
       font-size: 1.4rem;
-      list-style: none;
-      li {
+      display: flex;
+      flex-direction: column;
+      div {
         margin-bottom: 1rem;
-        cursor: pointer;
+        label {
+          margin-left: 1rem;
+        }
       }
     }
 

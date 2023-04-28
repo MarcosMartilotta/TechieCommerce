@@ -8,11 +8,9 @@ import { useParams } from 'react-router-dom';
 
 const Products = ({ categoryId = [] }) => {
   const id = useParams().id;
-  console.log(id);
   const [selectedCategory, setSelectedCategory] = useState(
     id !== 'empty' ? [id] : [],
   );
-  console.log(selectedCategory);
   const [maxPrice, setMaxPrice] = useState(100000);
   const [sort, setSort] = useState('desc');
   const [active, setActive] = useState(false);
@@ -47,7 +45,6 @@ const Products = ({ categoryId = [] }) => {
 
   const handleSort = () => {
     setSort(sort === 'desc' ? 'asc' : 'desc');
-    console.log(sort);
   };
   return (
     <section className="products">
@@ -98,12 +95,16 @@ const Products = ({ categoryId = [] }) => {
           </div>
           <hr />
           <h3>ORDENAR POR</h3>
-          <ul className="orderBy">
-            <li onClick={handleSort}>MÁS NUEVO</li>
-            <li>MAYOR PRECIO</li>
-            <li>OFERTAS</li>
-            <li>MARCA A-Z</li>
-          </ul>
+          <div className="orderBy">
+            <div>
+              <input id="asc" type="checkbox" onChange={handleSort} />
+              <label htmlFor="asc">PRECIO ASCENDENTE</label>
+            </div>
+            <div>
+              <input id="desc" type="checkbox" onChange={handleSort} />
+              <label htmlFor="desc">PRECIO DESCENDENTE</label>
+            </div>
+          </div>
         </section>
       </section>
       <section className="right">
@@ -112,6 +113,7 @@ const Products = ({ categoryId = [] }) => {
             maxPrice={maxPrice}
             sort={sort}
             selectedCategory={selectedCategory}
+            handleSort={handleSort}
           />
         </section>
       </section>
