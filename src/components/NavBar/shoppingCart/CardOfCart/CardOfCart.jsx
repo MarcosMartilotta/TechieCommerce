@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 const CardOfCart = ({ product }) => {
   const dispatch = useDispatch();
+  console.log(product.quantity);
 
   return (
     <article className="cardOfCart">

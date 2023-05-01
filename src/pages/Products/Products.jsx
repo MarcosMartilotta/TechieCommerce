@@ -43,8 +43,8 @@ const Products = ({ categoryId = [] }) => {
     setMaxPrice(e.target.value);
   };
 
-  const handleSort = () => {
-    setSort(sort === 'desc' ? 'asc' : 'desc');
+  const handleSort = (e) => {
+    setSort(e.target.value);
   };
   return (
     <section className="products">
@@ -97,11 +97,21 @@ const Products = ({ categoryId = [] }) => {
           <h3>ORDENAR POR</h3>
           <div className="orderBy">
             <div>
-              <input id="asc" type="checkbox" onChange={handleSort} />
+              <input
+                id="asc"
+                value="asc"
+                type="checkbox"
+                onChange={handleSort}
+              />
               <label htmlFor="asc">PRECIO ASCENDENTE</label>
             </div>
             <div>
-              <input id="desc" type="checkbox" onChange={handleSort} />
+              <input
+                id="desc"
+                value="desc"
+                type="checkbox"
+                onChange={handleSort}
+              />
               <label htmlFor="desc">PRECIO DESCENDENTE</label>
             </div>
           </div>
