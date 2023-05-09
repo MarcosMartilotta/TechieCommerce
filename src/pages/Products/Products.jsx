@@ -50,9 +50,9 @@ const Products = ({ categoryId = [] }) => {
     <section className="products">
       <h2>PRODUCTOS</h2>
       <section className="left">
-        <form action="">
+        {/*      <form action="">
           <input type="text" name="" id="" placeholder="Buscar" />
-        </form>
+        </form> */}
         <p onClick={dropDown}>
           Filtrar <span>{'>'}</span>{' '}
         </p>
